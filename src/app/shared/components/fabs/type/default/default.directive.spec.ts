@@ -1,4 +1,4 @@
-import { DefaultButtonDirective } from './default.directive';
+import { DefaultFabDirective } from './default.directive';
 
 describe('DefaultDirective', () => {
   it('should create an instance', () => {

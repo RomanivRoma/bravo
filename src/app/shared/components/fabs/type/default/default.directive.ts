@@ -1,9 +1,9 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[br-button]'
+  selector: '[br-fab]'
 })
-export class DefaultButtonDirective {
+export class DefaultFabDirective {
   @Input() defaultBackground: string = '#ffffff';
 
   constructor(protected el: ElementRef, protected renderer: Renderer2) {
@@ -11,13 +11,13 @@ export class DefaultButtonDirective {
     this.setStyle('opacity', isDisabled ? '0.6' : '1');
 
     this.setStyle('padding', '12px 16px');
+    this.setStyle('border-radius', '26px');
     this.setStyle('font-size', '16px');
     this.setStyle('font-weight', '700');
-    this.setStyle('border-radius', '8px');
 
     this.setStyle('color', '#616161');
     this.setStyle('background', '#ffffff');
-    this.setStyle('border', 'none');
+    this.setStyle('border', '2px solid #8AB9F6');
     this.setStyle('transition', 'background .3s, color .3s');
   }
 

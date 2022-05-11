@@ -1,4 +1,4 @@
-import { OutlinedButtonDirective } from './outlined.directive';
+import { OutlinedFabDirective } from './outlined.directive';
 
 describe('OutlinedDirective', () => {
   it('should create an instance', () => {

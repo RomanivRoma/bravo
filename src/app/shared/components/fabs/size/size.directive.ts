@@ -1,11 +1,11 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[br-button-size]'
+  selector: '[br-fab-size]'
 })
-export class SizeButtonDirective implements OnInit{
+export class SizeFabDirective implements OnInit{
 
-  @Input('br-button-size') size: string;
+  @Input('br-fab-size') size: string;
 
   constructor(private el: ElementRef, private renderer: Renderer2) { 
   }

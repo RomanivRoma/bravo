@@ -1,13 +1,13 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 import { Renderer2 } from '@angular/core';
-import { DefaultButtonDirective } from '../default/default.directive';
+import { DefaultFabDirective } from '../default/default.directive';
 
 @Directive({
-  selector: '[br-button-outlined]'
+  selector: '[br-fab-outlined]'
 })
-export class OutlinedButtonDirective extends DefaultButtonDirective{
+export class OutlinedFabDirective extends DefaultFabDirective{
 
-  @Input() override defaultBackground: string = '#ffffff';
+  @Input() override defaultBackground: string = '#C5DCFA80';
 
   constructor(protected override el: ElementRef, protected override renderer: Renderer2) {
     super(el, renderer)
@@ -20,7 +20,7 @@ export class OutlinedButtonDirective extends DefaultButtonDirective{
    
   @HostListener('mouseenter') override onMouseEnter() {
     this.setStyle('color', '#0F56B3');
-    this.setStyle('background', 'rgba(224, 224, 224, 0.5)');
+    this.setStyle('background', '#C5DCFA');
   }
    
   @HostListener('mouseleave') override onMouseLeave() {

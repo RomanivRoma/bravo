@@ -1,10 +1,10 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
-import { DefaultButtonDirective } from '../default/default.directive';
+import { DefaultFabDirective } from '../default/default.directive';
 
 @Directive({
-  selector: '[br-button-contained]'
+  selector: '[br-fab-contained]'
 })
-export class ContainedButtonDirective extends DefaultButtonDirective{
+export class ContainedFabDirective extends DefaultFabDirective{
 
   @Input() override defaultBackground: string = '#1672EC';
 
@@ -15,7 +15,7 @@ export class ContainedButtonDirective extends DefaultButtonDirective{
     this.setStyle('border', '1px solid #C0C0C0');
 
     this.setStyle('color', '#C5DCFA');
-    this.setStyle('box-shadow', '0px 1px 2px rgba(15, 86, 179, 0.2), 0px 2px 4px rgba(15, 86, 179, 0.2)');
+    this.setStyle('box-shadow', '0px 4px 8px rgba(15, 86, 179, 0.14), 0px 8px 16px rgba(15, 86, 179, 0.14)');
   }
    
   @HostListener('mouseenter') override onMouseEnter() {

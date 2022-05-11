@@ -1,4 +1,4 @@
-import { ContainedButtonDirective } from './contained.directive';
+import { ContainedFabDirective } from './contained.directive';
 
 describe('ContainedDirective', () => {
   it('should create an instance', () => {
