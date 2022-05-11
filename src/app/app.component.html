@@ -1,1 +1,32 @@
+<style>
+  .row{
+    display: flex;
+    gap: 5px;
+  }
+  .container{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+</style>
+
 <bravo-logo min width="200px" height="60px"></bravo-logo>
+<bravo-logo width="200px" height="60px"></bravo-logo>
+<div class="container">
+  <div class="row">
+    <button br-button disabled>Large</button>
+    <button br-button-outlined>Large</button>
+    <button br-button-contained>Large</button>
+  </div>
+  <div class="row">
+    <button br-button br-size="medium">Medium</button>
+    <button br-button-outlined br-size="medium2">Medium</button>
+    <button br-button-contained br-size="medium">Medium</button>
+  </div>
+  <div class="row">
+    <button br-button br-size="small">Small</button>
+    <button br-button-outlined br-size="small">Small</button>
+    <button br-button-contained br-size="small">Small</button>
+  </div>
+</div>
