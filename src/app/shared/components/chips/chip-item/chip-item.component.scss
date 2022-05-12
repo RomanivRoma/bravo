@@ -1,0 +1,45 @@
+:host{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: #616161;
+    font-weight: 700;
+    font-size: 16px;
+    border: 2px solid #E0E0E0;
+    border-radius: 16px;
+    background: #FFFFFF;
+    padding: 4px 16px;
+    &.active{
+        color: #0F56B3;
+        border-color: #5096F1;
+    }
+    &.active .checkmark:after{
+        border-color: #5096F1;
+    }
+    &.active .close{
+        color: #0F56B3;
+    }
+    .close {
+        font-size: 20px;
+        font-weight: 300;
+        color: #818181;
+        cursor: pointer;
+    }
+    .checkmark{
+        display:inline-block;
+        cursor: pointer;
+        &:after{
+          content: '';
+          display: block;
+          width: 6px;
+          height: 10px;
+          border: solid #818181;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+    }
+    .checkmark:hover,
+    .close:hover{
+        opacity: .7;
+    }
+}
