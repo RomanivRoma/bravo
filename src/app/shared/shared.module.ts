@@ -15,6 +15,10 @@ import { ContainedFabDirective } from './components/fabs/contained/contained.dir
 
 import { ChipListComponent } from './components/chips/chip-list/chip-list.component';
 import { ChipItemComponent } from './components/chips/chip-item/chip-item.component';
+import { InputDirective } from './components/inputs/input/input.directive';
+import { FormFieldComponent } from './components/inputs/form-field/form-field.component';
+import { LabelComponent } from './components/inputs/label/label.component';
+import { SelectDirective } from './components/inputs/select/select.directive';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,11 @@ import { ChipItemComponent } from './components/chips/chip-item/chip-item.compon
 
     ChipListComponent,
     ChipItemComponent,
+
+    InputDirective,
+    FormFieldComponent,
+    LabelComponent,
+    SelectDirective,
   ],
   imports: [
     CommonModule,
@@ -51,6 +60,12 @@ import { ChipItemComponent } from './components/chips/chip-item/chip-item.compon
 
     ChipListComponent,
     ChipItemComponent,
+
+    InputDirective,
+    FormFieldComponent,
+    LabelComponent,
+    SelectDirective,
+
   ]
 })
 export class SharedModule { }

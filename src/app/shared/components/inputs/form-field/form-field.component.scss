@@ -1,0 +1,30 @@
+:host{
+    margin: 0;
+	margin-bottom: 5px;
+	padding-top: 12px;
+	position: relative;
+    overflow: hidden;
+
+    &.len{
+        padding-bottom: 20px;
+        &:after {
+            content: attr(data-remaining) " / " attr(data-limit);
+            display: inline-block;
+            position: absolute;
+            bottom: 1px;
+            right: 1px;
+            padding: 0.25ex 0.5ex;
+            pointer-events: none; 
+            background-color: rgba(255,255,255,0.75);
+            color: #555;
+            font-size: 0.8em;
+        }
+        
+        &.warning::after {
+            color: yellow; 
+        }
+        &.critical::after {
+            color: red; 
+        }
+    }
+}
