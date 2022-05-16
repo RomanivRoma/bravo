@@ -1,0 +1,121 @@
+:host{
+    &[type="success"] .toast-wrapper{
+        background: #1F8B24;
+    }
+    &[type="wait"] .toast-wrapper{
+        background: #ED9526;
+    }
+    .toast-wrapper{
+        animation: show 0.5s forwards;
+        position: fixed;
+        color: white;
+        border-radius: 10px;
+        top: 0;
+        right: 0;
+        transform: translate(-15px, 15px);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .alert-wrapper{
+        display: flex;
+        // align-items: center;
+    }
+    .alert-text-icon{
+        align-items: flex-start;
+        box-shadow: 0 1px 1px rgb(10 10 10 / 10%);
+        display: flex;
+        max-width: 350px;
+        
+    } 
+    .alert-message{
+        align-items: center;
+        padding: 0 25px;
+        color: #FFFFFF;
+        font-feature-settings: 'tnum' on, 'lnum' on;
+
+        .alert-message-main{
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.005em;
+        }
+        .alert-message-small{
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 0.0168em;
+        }
+    }
+    .close{
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          appearance: none;
+          background: none;
+          border: none;
+          font-family: inherit;
+          font-size: 1.5em;
+          padding: 18px 18px 0;
+          align-items: center;
+          cursor: pointer;
+        //   color: #C5F2C7;
+          color: inherit;
+          opacity: .7;
+    }
+    .alert-bar { 
+        height: 6px;
+        background-color: #FFFFFF;
+        opacity: .6;
+        transition: width .3s;
+        width: 0;
+    }
+    .alert-progress {
+    }
+    .alert-icon{
+        padding: 18px 0 18px 18px;
+        
+    }
+    .spinner {
+        color: #FFFFFF;
+        height: 24px;
+        width: 24px;
+        fill: #FFFFFF;
+        padding: 0;
+    }
+    .spinner-back{
+        opacity: .2;
+    }
+    .animation-spin {
+        -webkit-animation: spin 2s infinite linear;
+        animation: spin 2s infinite linear;
+    }
+
+   
+}
+
+  
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+  
+@keyframes show{
+    0% {
+      transform: translate(-15px,15px) scale(0);
+    }
+    50% {
+      transform: translate(-15px,15px) scale(1.2);
+    }
+    70% {
+      transform: translate(-15px,15px) scale(0.9);
+    }
+    100% {
+      transform: translate(-15px,15px) scale(1);
+    }
+}
+  
+
+
