@@ -21,35 +21,31 @@ import { LabelComponent } from './components/inputs/label/label.component';
 import { SelectDirective } from './components/inputs/select/select.directive';
 import { ToastComponent } from './components/toast/toast/toast.component';
 import { ToastButtonDirective } from './components/toast/button/toast-button.directive';
+import { TooltipDirective } from './components/tooltip/tooltip-directive/tooltip.directive';
+import { TooltipPositionDirective } from './components/tooltip/tooltip-position/tooltip-position.directive';
+import { TooltipComponent } from './components/tooltip/tooltip/tooltip.component';
+import { TooltipModule } from './components/tooltip/tooltip.module';
+import { ToastModule } from './components/toast/toast.module';
+import { InputsModule } from './components/inputs/inputs.module';
+import { ChipsModule } from './components/chips/chips.module';
+import { FabsModule } from './components/fabs/fabs.module';
+import { ButtonsModule } from './components/buttons/buttons.module';
+import { LogoModule } from './components/logo/logo.module';
 
 
 @NgModule({
   declarations: [
-    LogoComponent,
-    
-    SizeDirective,
-
-    DefaultButtonDirective,
-    OutlinedButtonDirective,
-    ContainedButtonDirective,
-    
-    DefaultFabDirective,
-    OutlinedFabDirective,
-    ContainedFabDirective,
-
-    ChipListComponent,
-    ChipItemComponent,
-
-    InputDirective,
-    FormFieldComponent,
-    LabelComponent,
-    SelectDirective,
-
-    ToastComponent,
-    ToastButtonDirective,
+    // SizeDirective,
   ],
   imports: [
     CommonModule,
+    TooltipModule,
+    ToastModule,
+    InputsModule,
+    ChipsModule,
+    FabsModule,
+    ButtonsModule,
+    LogoModule,
   ],
   exports: [
     LogoComponent,
@@ -74,6 +70,9 @@ import { ToastButtonDirective } from './components/toast/button/toast-button.dir
 
     ToastComponent,
     ToastButtonDirective,
+
+    TooltipDirective,
+    TooltipPositionDirective,
   ]
 })
 export class SharedModule { }

@@ -14,8 +14,7 @@ export class ToastComponent implements OnInit {
   active: boolean = false;
   timer$: Observable<number>;
   destroy$: Subject<boolean> = new Subject();
-  pause$ = new BehaviorSubject<boolean>(false);
-  stopProgress: number = 110;
+  stopProgress: number = 105;
   stoppedTime: number = 0;
 
   constructor() { }
