@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'bravo-logo',
-  template: '<img src={{logoType}}/>',
+  template: '<img src={{logoSrc}}/>',
   styles: [`:host{
               display: block;
             } 
@@ -13,7 +13,6 @@ import { environment } from 'src/environments/environment';
             }`]
 })
 export class LogoComponent implements OnInit {
-  @Input('min') type: string;
   @Input() width: string;
   @Input() height: string;
 
@@ -24,13 +23,12 @@ export class LogoComponent implements OnInit {
     return this.height ? this.height : '';
   }
 
-  logoType: string = `${environment.images}/`;
+  logoSrc: string = `${environment.images}/bravo_logo.svg`;
 
   constructor() { }
 
   ngOnInit(): void {
-    const isMin = this.type == undefined ? '' : '_min'
-    this.logoType += `bravo_logo${isMin}.svg`;
   }
+
 
 }

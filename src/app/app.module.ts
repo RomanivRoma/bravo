@@ -8,6 +8,7 @@ import { ChipsModule } from './shared/components/chips/chips.module';
 import { FabsModule } from './shared/components/fabs/fabs.module';
 import { InputsModule } from './shared/components/inputs/inputs.module';
 import { LogoModule } from './shared/components/logo/logo.module';
+import { ToastModule } from './shared/components/toast/toast.module';
 import { TooltipModule } from './shared/components/tooltip/tooltip.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -19,13 +20,14 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     // SharedModule,
-    
+
     TooltipModule,
     FabsModule,
     ButtonsModule,
     ChipsModule,
     InputsModule,
     LogoModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
