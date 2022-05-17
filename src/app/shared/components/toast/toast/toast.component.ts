@@ -1,5 +1,5 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
-import { interval, map, Observable, Subject, takeUntil, takeWhile } from 'rxjs';
+import { Component, HostBinding, HostListener, Input, OnInit } from '@angular/core';
+import { BehaviorSubject, buffer, bufferWhen, interval, map, Observable, startWith, Subject, takeUntil, takeWhile, timer } from 'rxjs';
 
 @Component({
   selector: 'br-toast',
@@ -14,7 +14,9 @@ export class ToastComponent implements OnInit {
   active: boolean = false;
   timer$: Observable<number>;
   destroy$: Subject<boolean> = new Subject();
+  pause$ = new BehaviorSubject<boolean>(false);
   stopProgress: number = 110;
+  stoppedTime: number = 0;
 
   constructor() { }
 
@@ -24,13 +26,20 @@ export class ToastComponent implements OnInit {
       takeWhile(() => this.active),
       takeUntil(this.destroy$),
       map(val => {
-        if(val >= this.stopProgress) {
+        const time = val + this.stoppedTime;
+        console.log(time);
+        
+        if(time >= this.stopProgress) {
           this.hideAlert()
           return 0;
         }
-        return val;
+        return time;
       })
     )
+  }
+  ngOnDestroy(): void{
+    this.destroy$.next(true);
+    this.destroy$.complete();
   }
 
   @HostBinding('attr.active') get isActive(): boolean {
@@ -39,18 +48,28 @@ export class ToastComponent implements OnInit {
   @HostBinding('attr.type') get attribute(): string {
     return this.type;
   }
-  showAlert(){
-    if(this.active) return;
-    this.active = true;
+
+  @HostListener('mouseover') onHover(): void{
+    this.stoppedTime = this.progress + 1;
+    this.destroy$.next(true);
+  }
+  @HostListener('mouseout') outHover(): void{
     this.timer$.subscribe(val =>{
       this.progress = val; 
     })
   }
-  hideAlert(){
-    this.progress = 0
+  showAlert(): void{
+    if(this.active) return;
+    this.active = true;
+    this.timer$.subscribe(val =>{      
+      this.progress = val; 
+    })
+  }
+  hideAlert(): void{
+    this.progress = 0;
+    this.stoppedTime = 0;
     this.active = false; 
-    this.destroy$.next(true)
-    this.destroy$.complete()
+    this.destroy$.next(true);
   }
 
 }

@@ -18,7 +18,6 @@
     }
     .alert-wrapper{
         display: flex;
-        // align-items: center;
     }
     .alert-text-icon{
         align-items: flex-start;
@@ -55,7 +54,6 @@
           padding: 18px 18px 0;
           align-items: center;
           cursor: pointer;
-        //   color: #C5F2C7;
           color: inherit;
           opacity: .7;
     }
@@ -63,7 +61,7 @@
         height: 6px;
         background-color: #FFFFFF;
         opacity: .6;
-        transition: width .3s;
+        transition: width .1s;
         width: 0;
     }
     .alert-progress {

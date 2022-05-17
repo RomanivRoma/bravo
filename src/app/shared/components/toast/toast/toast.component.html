@@ -10,11 +10,17 @@
             </svg>
         </div>
        
-        <div class="alert-text-icon">
-            <div class="alert-message">
+        <div [ngSwitch]="type" class="alert-text-icon">
+            <div *ngSwitchCase="'wait'" class="alert-message">
+                <p class="alert-message-main">Catalog Replace</p>
+                <p class="alert-message-small">The file is being processed. 
+                    It may take several seconds.</p>
+            </div>
+            <div *ngSwitchDefault class="alert-message">
                 <p class="alert-message-main">Product Add</p>
                 <p class="alert-message-small">Product was added succesfully</p>
             </div>
+           
             <button class="close" (click)="hideAlert()">
                 &times;
             </button>

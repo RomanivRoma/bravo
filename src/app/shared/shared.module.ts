@@ -19,6 +19,9 @@ import { InputDirective } from './components/inputs/input/input.directive';
 import { FormFieldComponent } from './components/inputs/form-field/form-field.component';
 import { LabelComponent } from './components/inputs/label/label.component';
 import { SelectDirective } from './components/inputs/select/select.directive';
+import { ToastComponent } from './components/toast/toast/toast.component';
+import { ToastButtonDirective } from './components/toast/button/toast-button.directive';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { SelectDirective } from './components/inputs/select/select.directive';
     FormFieldComponent,
     LabelComponent,
     SelectDirective,
+
+    ToastComponent,
+    ToastButtonDirective,
   ],
   imports: [
     CommonModule,
@@ -66,6 +72,8 @@ import { SelectDirective } from './components/inputs/select/select.directive';
     LabelComponent,
     SelectDirective,
 
+    ToastComponent,
+    ToastButtonDirective,
   ]
 })
 export class SharedModule { }

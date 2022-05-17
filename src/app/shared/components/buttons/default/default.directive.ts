@@ -30,7 +30,9 @@ export class DefaultButtonDirective {
     this.setStyle('color', '#616161');
     this.setStyle('background', this.defaultBackground);
   }
-   
+  @HostListener('click', ['$event']) onClick(event: Event) {
+    console.log(event);
+  }
   protected setStyle(style: string, property: string) {
     this.renderer.setStyle(this.el.nativeElement, style, property);  
   }
