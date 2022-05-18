@@ -22,7 +22,6 @@ import { SelectDirective } from './components/inputs/select/select.directive';
 import { ToastComponent } from './components/toast/toast/toast.component';
 import { ToastButtonDirective } from './components/toast/button/toast-button.directive';
 import { TooltipDirective } from './components/tooltip/tooltip-directive/tooltip.directive';
-import { TooltipPositionDirective } from './components/tooltip/tooltip-position/tooltip-position.directive';
 import { TooltipComponent } from './components/tooltip/tooltip/tooltip.component';
 import { TooltipModule } from './components/tooltip/tooltip.module';
 import { ToastModule } from './components/toast/toast.module';
@@ -72,7 +71,6 @@ import { LogoModule } from './components/logo/logo.module';
     ToastButtonDirective,
 
     TooltipDirective,
-    TooltipPositionDirective,
   ]
 })
 export class SharedModule { }

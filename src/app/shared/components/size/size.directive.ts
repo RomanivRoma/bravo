@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 })
 export class SizeDirective implements OnInit{
 
-  @Input('br-size') size: string;
+  @Input('br-size') size: 'small' | 'medium';
 
   constructor(private el: ElementRef, private renderer: Renderer2) { 
   }
@@ -15,7 +15,6 @@ export class SizeDirective implements OnInit{
       'small': '4px 8px',
       'medium': '8px 12px'
     }
-    const padding = sizes[this.size]
-    this.renderer.setStyle(this.el.nativeElement, 'padding', padding)
+    this.renderer.setStyle(this.el.nativeElement, 'padding', sizes[this.size])
   }
 }

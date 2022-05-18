@@ -9,22 +9,22 @@ export class ToastButtonDirective implements OnInit {
   @Input() time: string = '5000';
   @Input() type: 'success' | 'wait' = 'success';
   toast: ComponentRef<ToastComponent>;
-  constructor(private el: ElementRef, 
-            private renderer: Renderer2,
-            private viewContainerRef: ViewContainerRef) { }
+  constructor(private viewContainerRef: ViewContainerRef) { }
 
   ngOnInit(): void {
-    this.toast = this.viewContainerRef.createComponent(ToastComponent);
-    this.toast.instance.time = +this.time;
-    this.toast.instance.type = this.type;
-    this.toast.location.nativeElement.setAttribute('type', this.type);
+    this.toast = this.createToastComponent();
   }
 
-  @HostListener('click', ['$event'])
-  onClick(){
-    console.log(this.toast);
+  @HostListener('click', ['$event']) onClick(){
     this.toast.instance.showAlert();
   }
 
+  createToastComponent(): ComponentRef<ToastComponent>{
+    const toast = this.viewContainerRef.createComponent(ToastComponent);
+    toast.instance.time = +this.time;
+    toast.instance.type = this.type;
+    toast.location.nativeElement.setAttribute('type', this.type);
+    return toast;
+  }
 }
 

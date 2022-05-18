@@ -20,21 +20,8 @@ export class ToastComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.timer$ = interval(this.time / this.stopProgress)
-    .pipe(
-      takeWhile(() => this.active),
-      takeUntil(this.destroy$),
-      map(val => {
-        const time = val + this.stoppedTime;
-        console.log(time);
-        
-        if(time >= this.stopProgress) {
-          this.hideAlert()
-          return 0;
-        }
-        return time;
-      })
-    )
+    const interval: number = this.time / this.stopProgress;
+    this.timer$ = this.createTimer(interval);
   }
   ngOnDestroy(): void{
     this.destroy$.next(true);
@@ -56,6 +43,22 @@ export class ToastComponent implements OnInit {
     this.timer$.subscribe(val =>{
       this.progress = val; 
     })
+  }
+
+  createTimer(interv: number): Observable<number>{
+    return interval(interv)
+    .pipe(
+      takeWhile(() => this.active),
+      takeUntil(this.destroy$),
+      map(val => {
+        const time = val + this.stoppedTime;
+        if(time >= this.stopProgress) {
+          this.hideAlert();
+          return 0;
+        }
+        return time;
+      })
+    )
   }
   showAlert(): void{
     if(this.active) return;

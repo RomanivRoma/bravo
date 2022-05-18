@@ -11,7 +11,7 @@
   }
 </style>
 
-<bravo-logo min width="200px" height="60px"></bravo-logo>
+<bravo-logo br-min-logo width="200px" height="60px"></bravo-logo>
 <bravo-logo width="200px" height="60px"></bravo-logo>
 <div class="row">
   <div class="container">
@@ -73,7 +73,7 @@
       <input br-input/>
     </br-form-field>
     <br-form-field>
-      <input br-input value="sdasd" maxlength="20"/>
+      <input br-input value="sdasd" maxlength="20" />
     </br-form-field>
   </div>
   <div class="row">
@@ -98,9 +98,5 @@
   </div>
 </div>  
 
-<div class="container">
-  <!-- <br-toast></br-toast> -->
-  <!-- <button (click)="buttonClick()">Toast button</button> -->
-  <button br-toast-button time="15000" type="success" br-tooltip="Show success toast">Toast button success</button>
-  <button br-toast-button time="3000" type="wait">Toast button wait</button>
-</div>
+<button br-toast-button time="15000" type="success" br-tooltip="Show success toast">Toast button success</button>
+<button br-toast-button time="3000" type="wait" br-tooltip="Show waiting toast" br-tooltip-position="right">Toast button wait</button>
