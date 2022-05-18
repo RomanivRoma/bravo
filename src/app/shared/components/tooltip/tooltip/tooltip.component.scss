@@ -1,0 +1,68 @@
+:host{
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    position: absolute;
+    z-index: 99999;
+    background: #414141;
+    padding: 12px 16px;
+    border-radius: 16px;
+    filter: drop-shadow(0px 2px 4px rgba(97, 97, 97, 0.18)) drop-shadow(0px 4px 8px rgba(97, 97, 97, 0.18));
+    transition: visibility .2s linear, opacity 0.5s ease-in-out;
+    &[position="top"],
+    &[position="bottom"]{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &[position="left"],
+    &[position="right"]{
+        top: 50%;
+        transform: translateY(-33%);
+    }
+
+    &::after,
+    &[position="top"]::after{
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-right: 20px solid transparent;
+        border-top: 12px solid #414141;
+        clear: both;
+    }
+
+    &[position="right"]::after{
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        left: unset;
+        transform: translateY(-50%);
+        border-right: unset;
+        border-left: 14px solid transparent;
+        border-top: 16px solid #414141;
+    }
+    &[position="bottom"]::after{
+        bottom: 100%;
+        top: unset;
+        border-bottom: 12px solid #414141;
+        border-right: 20px solid transparent;
+        border-top: 20px solid transparent;
+    }
+    &[position="left"]::after{
+        transform: translateY(-50%);
+        top: 50%;
+        left: 99%;
+        border-right: 14px solid transparent;
+        border-top: 18px solid #414141;
+    }
+    .tooltip-text{
+        color: #fff;
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: 0.0168em;
+        font-feature-settings: 'tnum' on, 'lnum' on;
+    }
+}
