@@ -1,13 +1,30 @@
-import { Component, HostBinding, HostListener, Input, OnInit } from '@angular/core';
-import { BehaviorSubject, buffer, bufferWhen, interval, map, Observable, startWith, Subject, takeUntil, takeWhile, timer } from 'rxjs';
+import {
+  Component,
+  HostBinding,
+  HostListener,
+  Input,
+  OnInit,
+} from '@angular/core';
+import {
+  BehaviorSubject,
+  buffer,
+  bufferWhen,
+  interval,
+  map,
+  Observable,
+  startWith,
+  Subject,
+  takeUntil,
+  takeWhile,
+  timer,
+} from 'rxjs';
 
 @Component({
   selector: 'br-toast',
   templateUrl: './toast.component.html',
-  styleUrls: ['./toast.component.scss']
+  styleUrls: ['./toast.component.scss'],
 })
 export class ToastComponent implements OnInit {
-
   @Input() time: number = 5000;
   @Input() type: 'success' | 'wait' = 'success';
   progress: number = 0;
@@ -17,13 +34,13 @@ export class ToastComponent implements OnInit {
   stopProgress: number = 105;
   stoppedTime: number = 0;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     const interval: number = this.time / this.stopProgress;
     this.timer$ = this.createTimer(interval);
   }
-  ngOnDestroy(): void{
+  ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.complete();
   }
@@ -35,43 +52,41 @@ export class ToastComponent implements OnInit {
     return this.type;
   }
 
-  @HostListener('mouseover') onHover(): void{
+  @HostListener('mouseover') onHover(): void {
     this.stoppedTime = this.progress + 1;
     this.destroy$.next(true);
   }
-  @HostListener('mouseout') outHover(): void{
-    this.timer$.subscribe(val =>{
-      this.progress = val; 
-    })
+  @HostListener('mouseout') outHover(): void {
+    this.timer$.subscribe((val) => {
+      this.progress = val;
+    });
   }
 
-  createTimer(interv: number): Observable<number>{
-    return interval(interv)
-    .pipe(
+  createTimer(interv: number): Observable<number> {
+    return interval(interv).pipe(
       takeWhile(() => this.active),
       takeUntil(this.destroy$),
-      map(val => {
+      map((val) => {
         const time = val + this.stoppedTime;
-        if(time >= this.stopProgress) {
+        if (time >= this.stopProgress) {
           this.hideAlert();
           return 0;
         }
         return time;
       })
-    )
+    );
   }
-  showAlert(): void{
-    if(this.active) return;
+  showAlert(): void {
+    if (this.active) return;
     this.active = true;
-    this.timer$.subscribe(val =>{      
-      this.progress = val; 
-    })
+    this.timer$.subscribe((val) => {
+      this.progress = val;
+    });
   }
-  hideAlert(): void{
+  hideAlert(): void {
     this.progress = 0;
     this.stoppedTime = 0;
-    this.active = false; 
+    this.active = false;
     this.destroy$.next(true);
   }
-
 }

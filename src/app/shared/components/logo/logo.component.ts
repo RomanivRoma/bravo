@@ -4,13 +4,17 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'bravo-logo',
   template: '<img src={{logoSrc}}/>',
-  styles: [`:host{
-              display: block;
-            } 
-            img{
-              width: 100%;
-              height: 100%;
-            }`]
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    `,
+  ],
 })
 export class LogoComponent implements OnInit {
   @Input() width: string;
@@ -25,10 +29,7 @@ export class LogoComponent implements OnInit {
 
   logoSrc: string = `${environment.images}/bravo_logo.svg`;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
-
+  ngOnInit(): void {}
 }

@@ -1,9 +1,9 @@
 <style>
-  .row{
+  .row {
     display: flex;
     gap: 5px;
   }
-  .container{
+  .container {
     margin-top: 10px;
     /* width: 400px; */
     display: flex;
@@ -53,15 +53,9 @@
 <div class="container">
   <div class="row">
     <br-chip-list>
-      <br-chip-item class="active">
-        Asd1
-      </br-chip-item>
-      <br-chip-item>
-        Asd2
-      </br-chip-item>
-      <br-chip-item>
-        Asd3
-      </br-chip-item>
+      <br-chip-item class="active"> Asd1 </br-chip-item>
+      <br-chip-item> Asd2 </br-chip-item>
+      <br-chip-item> Asd3 </br-chip-item>
     </br-chip-list>
   </div>
 </div>
@@ -69,29 +63,31 @@
 <div class="container">
   <div class="row">
     <br-form-field>
-      <br-label>Asdasf</br-label> 
-      <input br-input/>
+      <br-label>Asdasf</br-label>
+      <input br-input />
     </br-form-field>
     <br-form-field>
-      <br-label>Asdasf</br-label> 
-      <input br-input type="date"/>
+      <br-label>Asdasf</br-label>
+      <input br-input type="date" />
     </br-form-field>
     <br-form-field>
+      <br-label>Asdasf</br-label>
       <input br-input value="sdasd" maxlength="20" />
     </br-form-field>
   </div>
   <div class="row">
     <br-form-field>
-      <br-label>Asdasf</br-label> 
+      <br-label>Asdasf</br-label>
       <select br-select>
-        <!-- <option value="volvo">Volvo</option>
+        <option value="" selected></option>
+        <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>
         <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option> -->
-      </select> 
+        <option value="audi">Audi</option>
+      </select>
     </br-form-field>
     <br-form-field>
-      <br-label>afasfas</br-label> 
+      <br-label>afasfas</br-label>
       <select br-select>
         <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>
@@ -100,7 +96,22 @@
       </select>
     </br-form-field>
   </div>
-</div>  
+</div>
 
-<button br-toast-button time="15000" type="success" br-tooltip="Show success toast">Toast button success</button>
-<button br-toast-button time="3000" type="wait" br-tooltip="Show waiting toast" br-tooltip-position="right">Toast button wait</button>
+<button
+  br-toast-button
+  time="15000"
+  type="success"
+  br-tooltip="Show success toast"
+>
+  Toast button success
+</button>
+<button
+  br-toast-button
+  time="3000"
+  type="wait"
+  br-tooltip="Show waiting toast"
+  br-tooltip-position="right"
+>
+  Toast button wait
+</button>

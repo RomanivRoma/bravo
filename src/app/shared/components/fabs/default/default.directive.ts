@@ -1,7 +1,13 @@
-import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  Input,
+  Renderer2,
+} from '@angular/core';
 
 @Directive({
-  selector: '[br-fab]'
+  selector: '[br-fab]',
 })
 export class DefaultFabDirective {
   @Input() defaultBackground: string = '#ffffff';
@@ -25,13 +31,13 @@ export class DefaultFabDirective {
     this.setStyle('color', '#414141');
     this.setStyle('background', 'rgba(224, 224, 224, 0.5)');
   }
-   
+
   @HostListener('mouseleave') onMouseLeave() {
     this.setStyle('color', '#616161');
     this.setStyle('background', this.defaultBackground);
   }
-   
+
   protected setStyle(style: string, property: string) {
-    this.renderer.setStyle(this.el.nativeElement, style, property);  
+    this.renderer.setStyle(this.el.nativeElement, style, property);
   }
 }
