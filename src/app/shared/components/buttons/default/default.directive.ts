@@ -1,7 +1,13 @@
-import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  Input,
+  Renderer2,
+} from '@angular/core';
 
 @Directive({
-  selector: '[br-button]'
+  selector: '[br-button]',
 })
 export class DefaultButtonDirective {
   @Input() defaultBackground: string = '#ffffff';
@@ -25,7 +31,7 @@ export class DefaultButtonDirective {
     this.setStyle('color', '#414141');
     this.setStyle('background', 'rgba(224, 224, 224, 0.5)');
   }
-   
+
   @HostListener('mouseleave') onMouseLeave() {
     this.setStyle('color', '#616161');
     this.setStyle('background', this.defaultBackground);
@@ -34,6 +40,6 @@ export class DefaultButtonDirective {
     console.log(event);
   }
   protected setStyle(style: string, property: string) {
-    this.renderer.setStyle(this.el.nativeElement, style, property);  
+    this.renderer.setStyle(this.el.nativeElement, style, property);
   }
 }
