@@ -8,7 +8,6 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, TemplateRef } from 
 export class ChipItemComponent implements OnInit {
 
   @Output() remove: EventEmitter<any> = new EventEmitter();
-  @ViewChild(TemplateRef) template: TemplateRef<any>;
 
   constructor() { }
 

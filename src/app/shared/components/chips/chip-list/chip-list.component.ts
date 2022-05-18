@@ -24,17 +24,18 @@ export class ChipListComponent implements OnInit {
   ngAfterViewInit (): void {
     console.log(this.chipsList);
     
-    // this.chips = this.chipsList.toArray();
-    // this.chips.forEach((el, i) =>{
-    //   console.log(el);
-    //   el.remove.subscribe(() =>{
-    //     this.handleRemove(i)
-    //   })
-    // })
-    // this.cd.detectChanges();
+    this.chips = this.chipsList.toArray();
+    this.chips.forEach((el, i) =>{
+      console.log(el);
+      el.remove.subscribe(() =>{
+        this.handleRemove(i)
+      })
+    })
+    this.cd.detectChanges();
   }
 
   handleRemove(index: number){
-    // this.chips = this.chips.filter((el, i) => i != index);
+    this.chips = this.chips.filter((el, i) => i != index);
+    console.log(this.chips)
   }
 }
