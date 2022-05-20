@@ -1,22 +1,22 @@
 import {
   Component,
+  ContentChild,
+  ElementRef,
   HostBinding,
   HostListener,
   Input,
   OnInit,
+  ViewContainerRef,
 } from '@angular/core';
 import {
-  BehaviorSubject,
-  buffer,
-  bufferWhen,
+  delay,
   interval,
   map,
   Observable,
-  startWith,
+  retry,
   Subject,
   takeUntil,
   takeWhile,
-  timer,
 } from 'rxjs';
 
 @Component({
@@ -25,8 +25,8 @@ import {
   styleUrls: ['./toast.component.scss'],
 })
 export class ToastComponent implements OnInit {
-  @Input() time: number = 5000;
-  @Input() type: 'success' | 'wait' = 'success';
+  time: number = 5000;
+  @Input() background: string = '#1F8B24';
   progress: number = 0;
   active: boolean = false;
   timer$: Observable<number>;
@@ -34,11 +34,13 @@ export class ToastComponent implements OnInit {
   stopProgress: number = 105;
   stoppedTime: number = 0;
 
-  constructor() {}
-
-  ngOnInit(): void {
+  constructor() {
     const interval: number = this.time / this.stopProgress;
     this.timer$ = this.createTimer(interval);
+  }
+
+  ngOnInit(): void {
+
   }
   ngOnDestroy(): void {
     this.destroy$.next(true);
@@ -47,9 +49,6 @@ export class ToastComponent implements OnInit {
 
   @HostBinding('attr.active') get isActive(): boolean {
     return this.active;
-  }
-  @HostBinding('attr.type') get attribute(): string {
-    return this.type;
   }
 
   @HostListener('mouseover') onHover(): void {
