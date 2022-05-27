@@ -14,25 +14,22 @@ import { ChipItemComponent } from '../chip-item/chip-item.component';
 })
 export class ChipListComponent implements OnInit {
   @ContentChildren(ChipItemComponent) chipsList!: QueryList<ChipItemComponent>;
-  // @ContentChild(ChipItemComponent) chipsRef : ElementRef;
 
   chips: ChipItemComponent[];
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    console.log(this.chipsList);
+    // console.log(this.chipsList);
 
     this.chips = this.chipsList.toArray();
     this.chips.forEach((el, i) => {
-      console.log(el);
       el.remove.subscribe(() => {
         this.handleRemove(i);
       });
     });
-    this.cd.detectChanges();
   }
 
   handleRemove(index: number) {

@@ -1,0 +1,14 @@
+<!-- <fieldset class="title" (click)="handleOpen()">
+    <legend>{{ title }}</legend>
+</fieldset> -->
+<div class="title" (click)="handleOpen($event)">
+    {{ selectedValues.length > 0 ? selectedValuesStr : title }}
+</div>
+
+<div class="select-options"
+     [style.visibility]="isOpened ? 'visible' : 'hidden'"
+     [style.opacity]="isOpened ? '1' : '0'"
+     #optionsBlock
+     >
+    <ng-content></ng-content>
+</div>  

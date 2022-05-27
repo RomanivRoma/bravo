@@ -1,0 +1,10 @@
+<input
+  [type]="isMultiple ? 'checkbox' : 'radio'"
+  [checked]="option.isChecked"
+  [id]="id"
+  [name]="name"
+  [value]="option.value"
+  (change)="onCheck()" />
+<label [for]="id">
+  <ng-content></ng-content>
+</label>

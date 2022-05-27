@@ -12,7 +12,7 @@ export class ContainedFabDirective extends DefaultFabDirective{
     super(el, renderer)
    
     this.setStyle('background', this.defaultBackground);
-    this.setStyle('border', '1px solid #C0C0C0');
+    this.setStyle('border', '1.5px solid #C0C0C0');
 
     this.setStyle('color', '#C5DCFA');
     this.setStyle('box-shadow', '0px 4px 8px rgba(15, 86, 179, 0.14), 0px 8px 16px rgba(15, 86, 179, 0.14)');

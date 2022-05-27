@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[br-input]',
+  selector: '[brInput]',
 })
 export class InputDirective implements OnInit {
   @Input() maxlength: string;
@@ -29,17 +29,17 @@ export class InputDirective implements OnInit {
       (!input.value && !input.placeholder && this.isTextInputType(this.type))
     )
       return;
-    this.setLabelStyles(label);
+    this.setActiveLabelStyles(label);
     this.renderer.setStyle(label, 'color', '#818181');
   }
 
   @HostListener('focusout', ['$event.target'])
   outFocus(input: HTMLInputElement) {
-    this.setStyle('border', '1px solid #A1A1A1');
+    this.setStyle('border', '1.5px solid #A1A1A1');
 
     const label: ChildNode | null = input.previousSibling;
     if (!label) return;
-    this.renderer.setStyle(label, 'color', '#aaa');
+    this.renderer.setStyle(label, 'color', '#818181');
 
     if (input.placeholder || input.value || !this.isTextInputType(this.type))
       return;
@@ -54,7 +54,7 @@ export class InputDirective implements OnInit {
 
     const label: ChildNode | null = input.previousSibling;
     if (!label) return;
-    this.setLabelStyles(label as HTMLElement);
+    this.setActiveLabelStyles(label as HTMLElement);
   }
   @HostListener('input', ['$event.target'])
   change(input: HTMLInputElement) {
@@ -66,7 +66,7 @@ export class InputDirective implements OnInit {
     );
   }
   setInputStyles(): void {
-    this.setStyle('border', '1px solid #A1A1A1');
+    this.setStyle('border', '1.5px solid #A1A1A1');
     this.setStyle('border-radius', '8px');
     this.setStyle('background', '#FFFFFF');
     this.setStyle('padding', '12px');
@@ -74,7 +74,7 @@ export class InputDirective implements OnInit {
     this.setStyle('font-size', '16px');
     this.setStyle('outline', 'none');
   }
-  setLabelStyles(label: HTMLElement): void {
+  setActiveLabelStyles(label: HTMLElement): void {
     this.renderer.setStyle(label, 'font-size', '11px');
     this.renderer.setStyle(label, 'top', '-2px');
     this.renderer.setStyle(label, 'line-height', '12px');

@@ -1,0 +1,36 @@
+:host {
+    display: flex;  
+    align-items: center;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    // margin-top: -0.1px;
+    label {
+        display: inline-block;
+        width: 100%;
+        padding: 10px 30px 10px 10px;
+        cursor: pointer;
+    }
+    
+    &:hover {
+        background: #eaeaec;
+    }
+
+    input {
+        display: none;
+        margin: 13px 5px 10px 5px;
+        transform: scale(1.5);
+        cursor: pointer;
+    }
+    input{
+        background: rgba(197, 220, 250, 0.5);
+        border-radius: 4px;
+    }
+    &.multipleOption input{
+        display: block;
+    }
+    input:checked ~ label{
+        font-weight: 700;
+    }
+}

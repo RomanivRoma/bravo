@@ -5,6 +5,7 @@ import {
   EventEmitter,
   ViewChild,
   TemplateRef,
+  ElementRef,
 } from '@angular/core';
 
 @Component({
@@ -15,7 +16,7 @@ import {
 export class ChipItemComponent implements OnInit {
   @Output() remove: EventEmitter<any> = new EventEmitter();
 
-  constructor() {}
+  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {}
 

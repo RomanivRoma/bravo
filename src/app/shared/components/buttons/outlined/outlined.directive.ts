@@ -15,7 +15,7 @@ export class OutlinedButtonDirective extends DefaultButtonDirective {
     super(el, renderer);
 
     this.setStyle('background', this.defaultBackground);
-    this.setStyle('border', '1px solid #C0C0C0');
+    this.setStyle('border', '1.5px solid #C0C0C0');
 
     this.setStyle('color', '#1672EC');
   }
