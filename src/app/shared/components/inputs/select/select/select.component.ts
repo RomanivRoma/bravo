@@ -92,8 +92,12 @@ export class SelectComponent implements OnInit {
       }
       const isChecked = option.option.isChecked;
       option.name = this.optionName;
-      if (isChecked && !this.selectedValues.length)
+      if (isChecked) {
+        if (!isMultiple) {
+          if (this.selectedValues.length) return;
+        }
         this.selectedValues.push(option.option);
+      }
       this.selectedValuesStr = this.getSelectTitle(this.selectedValues);
       option.getOnCheckEmitter().subscribe((o) => {
         const isChecked = o.isChecked;
