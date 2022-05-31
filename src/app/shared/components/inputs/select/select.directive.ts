@@ -4,16 +4,20 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
   selector: '[brSelect]',
 })
 export class SelectDirective {
+  private label: HTMLElement;
+  private hasLabel: boolean;
+
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
     const select: HTMLSelectElement = this.el.nativeElement;
-    const label: HTMLLabelElement = this.el.nativeElement.previousSibling;
+    this.label = this.el.nativeElement.previousSibling;
+    this.hasLabel = this.label?.tagName === 'BR-LABEL';
     this.setSelectStyles();
 
     this.setArrowStyle();
 
-    if (!label || !select.value) return;
+    if (!this.label || !select.value) return;
 
     // const selectedValue: string = select.options[select.selectedIndex]?.text;
 
@@ -22,32 +26,33 @@ export class SelectDirective {
       this.renderer.setStyle(
         select,
         'width',
-        `${label.offsetWidth + arrowWidth}px`
+        `${this.label.offsetWidth + arrowWidth}px`
       );
     }
-    this.setActiveLabelStyles(label);
-    this.renderer.setStyle(label, 'color', '#777');
+    if (!this.hasLabel) return;
+    this.setActiveLabelStyles(this.label);
+    this.renderer.setStyle(this.label, 'color', '#777');
   }
 
   @HostListener('focusout', ['$event.target'])
   outFocus(select: HTMLSelectElement) {
     this.setStyle('border', '1.5px solid #A1A1A1');
     this.setArrowStyle();
-    const label: ChildNode | null = select.previousSibling;
-    if (!label) return;
-    this.renderer.setStyle(label, 'color', '#818181');
+    if (!this.hasLabel) return;
+
+    this.renderer.setStyle(this.label, 'color', '#818181');
     if (select.value) return;
-    this.renderer.setStyle(label, 'font-size', '16px');
-    this.renderer.setStyle(label, 'top', '22px');
-    this.renderer.setStyle(label, 'line-height', '24px');
+    this.renderer.setStyle(this.label, 'font-size', '16px');
+    this.renderer.setStyle(this.label, 'top', '22px');
+    this.renderer.setStyle(this.label, 'line-height', '24px');
   }
   @HostListener('focus', ['$event.target'])
   onFocus(select: HTMLSelectElement) {
     this.setStyle('border', '1.5px solid #1672EC');
     this.setActiveArrowStyle();
-    const label: ChildNode | null = select.previousSibling;
-    if (!label) return;
-    this.setActiveLabelStyles(label as HTMLElement);
+    if (!this.hasLabel) return;
+
+    this.setActiveLabelStyles(this.label);
   }
 
   setArrowStyle(): void {
