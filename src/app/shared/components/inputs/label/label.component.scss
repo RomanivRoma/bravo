@@ -1,6 +1,8 @@
 :host {
     position: absolute;
-    top: 22px;
+    // top: 22px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 12px;
     color: #818181;
     transition: all 0.2s;

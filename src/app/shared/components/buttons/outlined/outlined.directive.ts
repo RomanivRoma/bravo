@@ -13,7 +13,6 @@ export class OutlinedButtonDirective extends DefaultButtonDirective {
     protected override renderer: Renderer2
   ) {
     super(el, renderer);
-
     this.setStyle('background', this.defaultBackground);
     this.setStyle('border', '1.5px solid #C0C0C0');
 
@@ -21,11 +20,13 @@ export class OutlinedButtonDirective extends DefaultButtonDirective {
   }
 
   @HostListener('mouseenter') override onMouseEnter() {
+    if (this.isDisabled) return;
     this.setStyle('color', '#0F56B3');
     this.setStyle('background', 'rgba(224, 224, 224, 0.5)');
   }
 
   @HostListener('mouseleave') override onMouseLeave() {
+    if (this.isDisabled) return;
     this.setStyle('color', '#1672EC');
     this.setStyle('background', this.defaultBackground);
   }

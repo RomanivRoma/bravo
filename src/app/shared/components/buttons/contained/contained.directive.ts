@@ -18,7 +18,6 @@ export class ContainedButtonDirective extends DefaultButtonDirective {
     protected override renderer: Renderer2
   ) {
     super(el, renderer);
-
     this.setStyle('background', this.defaultBackground);
     this.setStyle('border', '1.5px solid #C0C0C0');
 
@@ -30,11 +29,13 @@ export class ContainedButtonDirective extends DefaultButtonDirective {
   }
 
   @HostListener('mouseenter') override onMouseEnter() {
+    if (this.isDisabled) return;
     this.setStyle('color', '#ffffff');
     this.setStyle('background', '#0F56B3');
   }
 
   @HostListener('mouseleave') override onMouseLeave() {
+    if (this.isDisabled) return;
     this.setStyle('color', '#C5DCFA');
     this.setStyle('background', this.defaultBackground);
   }
