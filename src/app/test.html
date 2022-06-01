@@ -1,0 +1,149 @@
+<style>
+  
+  .row {
+    display: flex;
+    gap: 5px;
+  }
+  .container {
+    margin-top: 10px;
+    /* width: 400px; */
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+
+<bravo-logo br-min-logo width="200px" height="60px"></bravo-logo>
+<bravo-logo width="200px" height="60px"></bravo-logo>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <button br-button disabled>Large</button>
+      <button br-button-outlined>Large</button>
+      <button br-button-contained>Large</button>
+    </div>
+    <div class="row">
+      <button br-button br-size="medium">Medium</button>
+      <button br-button-outlined br-size="medium">Medium</button>
+      <button br-button-contained br-size="medium">Medium</button>
+    </div>
+    <div class="row">
+      <button br-button br-size="small">Small</button>
+      <button br-button-outlined br-size="small">Small</button>
+      <button br-button-contained br-size="small">Small</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <button br-fab disabled>+</button>
+      <button br-fab-outlined>+</button>
+      <button br-fab-contained>+</button>
+    </div>
+    <div class="row">
+      <button br-fab br-size="medium">+</button>
+      <button br-fab-outlined br-size="medium">+</button>
+      <button br-fab-contained br-size="medium">+</button>
+    </div>
+    <div class="row">
+      <button br-fab br-size="small">+</button>
+      <button br-fab-outlined br-size="small">+</button>
+      <button br-fab-contained br-size="small">+</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <br-chip-list>
+      <br-chip-item class="active"> Asd1 </br-chip-item>
+      <br-chip-item> Asd2 </br-chip-item>
+      <br-chip-item> Asd3 </br-chip-item>
+    </br-chip-list>
+  </div>
+</div>
+
+<div class="container">
+  <form>
+    <div class="row">
+      <br-form-field>
+        <br-label>Asdasf</br-label>
+        <input minlength="4" type="email" required brInput placeholder="Aaaaa"/>
+      </br-form-field>
+      <br-form-field>
+        <br-label>Asdasf</br-label>
+        <input brInput type="date" />
+      </br-form-field>
+      <br-form-field>
+        <input brInput value="sdasd" maxlength="20" />
+      </br-form-field>
+    </div>
+    <button>Submit</button>
+  </form>
+  <div class="row">
+    <br-form-field>
+      <br-label>Asdas asda sfsfsfsf sfsfsfsf sfsfsfsf sfsf</br-label>
+      <select brSelect>
+        <option value="" selected disabled hidden></option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+    </br-form-field>
+    <br-form-field>
+      <br-label>afasfas</br-label>
+      <select brSelect>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+    </br-form-field>
+  </div>
+</div>
+
+<button
+  br-toast-button
+  type="success"
+  br-tooltip="Show success toast"
+>
+  Toast button success
+</button>
+<button
+  br-toast-button
+  type="wait"
+  br-tooltip="Show waiting toast"
+  br-tooltip-position="right"
+>
+  Toast button wait
+</button>
+
+<div class="row">
+  <br-form-field>
+    <br-label>Asdasf</br-label>
+    <br-select multiple>
+      <br-option value="volvo">Volvo</br-option>
+      <br-option selected value="saab">Saab</br-option>
+      <br-option value="mercedes">Mercedes Mercedes Mercedes</br-option>
+      <br-option selected value="audi">Audi</br-option>
+    </br-select>
+  </br-form-field>
+  <br-form-field>
+    <br-label>afasfas</br-label>
+    <br-select br-select >
+      <br-option value="volvo">Volvo</br-option>
+      <br-option selected value="saab">Saab</br-option>
+      <br-option value="mercedes">Mercedes</br-option>
+      <br-option value="audi">Audi</br-option>
+    </br-select>
+  </br-form-field>
+</div>
+<button
+  br-button
+  br-toast-button
+  time="3000"
+  type="wait"
+  br-tooltip="Show waiting toast"
+  br-tooltip-position="right"
+>
+  Toast button wait
+</button>
