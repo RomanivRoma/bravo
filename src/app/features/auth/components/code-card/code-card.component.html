@@ -1,0 +1,20 @@
+<form>
+  <bravo-card>
+      <h3 class="title" title>Please check your email</h3>
+      <p class="header" header>We use this login code so you don’t have to remember or type in yet another long password</p>
+      <div body class="input-wrapper">
+          <br-form-field class="input-control">
+              <br-label>Your login code</br-label>
+              <input brInput [valid]="isValid" error="Code is not valid"/>
+          </br-form-field>
+          <span>-</span>
+          <br-form-field class="input-control">
+              <input brInput [valid]="isValid"/>
+          </br-form-field>
+      </div>
+      <p class="footer" footer>
+          We've sent a 6 digit login code to example@email.com
+          Can't find it? Check your spam folder.
+      </p>
+  </bravo-card>
+</form>

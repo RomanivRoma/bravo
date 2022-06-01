@@ -1,0 +1,61 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 70px 48px 58px;
+  max-width: 342px;
+  margin: 10% auto;
+  position: relative;
+
+
+
+  .title {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .header {
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 142%;
+    letter-spacing: 0.0168em;
+    color: #414141;
+
+  }
+
+  .input-wrapper span {
+    font-weight: 200;
+    font-size: 43px;
+  }
+
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .input-control {
+    display: flex;
+  }
+
+  .input-control,
+  .input-control input,
+  .button-control {
+    width: 100%;
+  }
+
+  .footer {
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #414141;
+    width: 95%;
+    margin-bottom: 30px;
+  }
+}

@@ -1,0 +1,20 @@
+<form [formGroup]="emailForm">
+  <bravo-card>
+      <h3 class="title" title>Log In</h3>
+      <p class="header" header></p>
+      <br-form-field class="input-control" body>
+          <br-label>Your Email</br-label>
+          <input formControlName="email" [error]="error" type="email"
+                  brInput placeholder="email@example.com" [valid]="isValid" [validImage]="true"/>
+      </br-form-field>
+      <p class="footer" footer>
+          Enter the email you signed up with
+          to receive your login code
+      </p>
+      <button (click)="submitForm()" class="button-control" 
+              [disabled]="isDisabled" br-button-contained button>
+          Log In
+      </button>
+      <bravo-spinner spinner *ngIf="isLoading"></bravo-spinner>
+  </bravo-card>
+</form>
