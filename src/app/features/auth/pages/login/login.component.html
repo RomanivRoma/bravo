@@ -2,7 +2,7 @@
     <bravo-logo width="122px" height="40px"></bravo-logo>
 </div>
 <div>
-    <bravo-login-card *ngIf="!isLogged; else codeCard" (onSubmit)="submitEmail($event)"></bravo-login-card>
+    <bravo-login-card *ngIf="isLogged; else codeCard" (onSubmit)="submitEmail($event)"></bravo-login-card>
     <ng-template #codeCard>
         <bravo-code-card></bravo-code-card>
     </ng-template>

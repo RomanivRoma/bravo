@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+const code = 123123;
 
 @Component({
   selector: 'bravo-code-card',
@@ -6,14 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./code-card.component.scss'],
 })
 export class CodeCardComponent implements OnInit {
-  public isDisabled: boolean = true;
-  public isValid: boolean = false;
+  public isLoading: boolean = false;
 
   constructor() {}
 
   ngOnInit() {}
 
-  submitCode(): void {
-
+  submit() {
+    this.isLoading = true
+    console.log('code submitted');
+    setTimeout(() => {
+      this.isLoading = false
+    }, 20000);
   }
 }

@@ -9,8 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
 import { LoginCardComponent } from './components/login-card/login-card.component';
 import { CodeCardComponent } from './components/code-card/code-card.component';
-import { SpinnerComponent } from 'src/app/core/components/spinner/spinner.component';
-import { ComponentsModule } from 'src/app/core/components/components.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 const routes: Routes = [
   {
@@ -32,7 +31,7 @@ const routes: Routes = [
     LogoModule,
     ButtonsModule,
     ReactiveFormsModule,
-    ComponentsModule,
+    CoreModule,
     RouterModule.forChild(routes)
   ],      
   exports: [

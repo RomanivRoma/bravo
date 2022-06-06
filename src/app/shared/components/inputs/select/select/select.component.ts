@@ -58,7 +58,7 @@ export class SelectComponent implements OnInit {
     const formField: ChildNode | null = select.parentElement;
 
     if (!label || !this.title) return;
-    this.setActiveLabelStyles(label as HTMLElement);
+    this.setActiveLabelStyles(<HTMLElement>label);
     this.renderer.setStyle(label, 'color', '#777');
   }
 
@@ -135,9 +135,9 @@ export class SelectComponent implements OnInit {
   handleOpen(event: Event) {
     this.isOpened = !this.isOpened;
 
-    const title: HTMLElement = event.target as HTMLElement;
-    const label: HTMLElement = title.parentElement
-      ?.previousSibling as HTMLElement;
+    const title: HTMLElement = <HTMLElement>event.target;
+    const label: HTMLElement = <HTMLElement>title.parentElement
+      ?.previousSibling;
     if (!label || this.selectedValuesStr) return;
 
     this.setActiveLabelStyles(label);

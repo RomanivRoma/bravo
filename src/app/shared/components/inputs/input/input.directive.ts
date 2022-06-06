@@ -87,7 +87,7 @@ export class InputDirective implements OnInit {
   // @HostListener('invalid', ['$event'])
   // invalid(e: Event) {
   //   e.preventDefault();
-  //   const input: HTMLInputElement = e.target as HTMLInputElement;
+  //   const input: HTMLInputElement = <HTMLInputElement>e.target;
   //   const parent: HTMLElement | null = input.parentElement as HTMLElement;
   // }
   @HostListener('input', ['$event.target'])
@@ -100,8 +100,8 @@ export class InputDirective implements OnInit {
     );
   }
   setInputImages(value: boolean){
-    const parent: HTMLElement | null = this.el.nativeElement
-      .parentElement as HTMLElement;
+    const parent: HTMLElement | null = <HTMLElement>this.el.nativeElement
+      .parentElement;
 
     if (value) {
       this.setStyle('border-color', '#1F8B24');
