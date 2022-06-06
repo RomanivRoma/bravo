@@ -1,0 +1,12 @@
+<form class="input-wrapper" [formGroup]="codeForm">
+    <br-form-field class="input-control">
+        <br-label>Your login code</br-label>
+        <input numberInput pattern="[0-9]*" #firstInput formControlName="first" brInput
+            (input)="firstInputChange($event)" [valid]="isValid" error="Code is not valid" />
+    </br-form-field>
+    <span>-</span>
+    <br-form-field class="input-control">
+        <input numberInput #lastInput formControlName="last" brInput (input)="lastInputChange($event)"
+            [valid]="isValid" />
+    </br-form-field>
+</form>
